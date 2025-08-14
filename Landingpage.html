@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoVessel | Colorful Sustainable Water Bottles</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #1a936f;
+            --primary-light: #88d498;
+            --primary-dark: #114b5f;
+            --secondary: #ff9f1c;
+            --secondary-light: #ffbf69;
+            --accent: #e71d36;
+            --accent-light: #ff9faa;
+            --text: #2b2d42;
+            --text-light: #8d99ae;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --quote-bg: #f1faee;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes colorCycle {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo::before {
+            content: "🌿";
+            margin-right: 10px;
+            font-size: 24px;
+            animation: pulse 2s infinite;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 16px;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+            background-color: rgba(26, 147, 111, 0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, #f1faee 0%, #a8dadc 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: var(--bg-light);
+            clip-path: ellipse(75% 100% at 50% 100%);
+        }
+        
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            animation: slideUp 0.8s ease forwards, float 6s ease-in-out infinite;
+            opacity: 0;
+            animation-delay: 0.2s;
+        }
+        
+        .hero p {
+            font-size: 22px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--text);
+            animation: slideUp 0.8s ease forwards, float 6s ease-in-out infinite;
+            opacity: 0;
+            animation-delay: 0.4s;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(26, 147, 111, 0.3);
+            animation: slideUp 0.8s ease forwards, float 6s ease-in-out infinite;
+            opacity: 0;
+            animation-delay: 0.6s;
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(26, 147, 111, 0.4);
+            animation: pulse 1s infinite;
+        }
+        
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-dark), var(--primary));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .cta-button:hover::after {
+            opacity: 1;
+        }
+        
+        /* Quote Section */
+        .quote-section {
+            padding: 60px 0;
+            background-color: var(--quote-bg);
+            text-align: center;
+        }
+        
+        .quote {
+            font-size: 28px;
+            font-style: italic;
+            color: var(--primary-dark);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            position: relative;
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .quote::before, .quote::after {
+            content: '"';
+            font-size: 60px;
+            color: var(--secondary);
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        .quote::before {
+            top: 0;
+            left: 0;
+        }
+        
+        .quote::after {
+            bottom: -20px;
+            right: 0;
+        }
+        
+        .quote-author {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-top: 20px;
+            display: block;
+            font-style: normal;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+            animation-delay: 0.2s;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            background: var(--white);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+            opacity: 0;
+            animation: slideUp 0.6s ease forwards;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card:nth-child(1) { animation-delay: 0.3s; }
+        .feature-card:nth-child(2) { animation-delay: 0.5s; }
+        .feature-card:nth-child(3) { animation-delay: 0.7s; }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .feature-icon {
+            font-size: 54px;
+            margin-bottom: 25px;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 22px;
+            color: var(--primary-dark);
+        }
+        
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 16px;
+        }
+        
+        /* Product Showcase */
+        .product-showcase {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e2f3f3 100%);
+            text-align: center;
+            position: relative;
+        }
+        
+        .product-showcase .section-title {
+            animation-delay: 0.1s;
+        }
+        
+        .product-showcase p {
+            max-width: 700px;
+            margin: 0 auto 50px;
+            color: var(--text-light);
+            font-size: 18px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+            animation-delay: 0.3s;
+        }
+        
+        .product-image-container {
+            position: relative;
+            margin: 40px 0;
+            perspective: 1000px;
+        }
+        
+        .product-image {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards;
+            animation-delay: 0.5s;
+            border: 15px solid white;
+        }
+        
+        .product-image:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+        }
+        
+        .product-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+        
+        .dot:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            background-color: var(--primary);
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .dot:nth-child(2) {
+            top: 70%;
+            left: 15%;
+            background-color: var(--secondary);
+            animation: float 5s ease-in-out infinite 0.5s;
+        }
+        
+        .dot:nth-child(3) {
+            top: 30%;
+            right: 10%;
+            background-color: var(--accent);
+            animation: float 6s ease-in-out infinite 1s;
+        }
+        
+        .dot:nth-child(4) {
+            bottom: 20%;
+            right: 15%;
+            background-color: var(--primary-light);
+            animation: float 4.5s ease-in-out infinite 1.5s;
+        }
+        
+        /* Sustainability Section */
+        .sustainability {
+            padding: 100px 0;
+            background-color: var(--white);
+            text-align: center;
+            position: relative;
+        }
+        
+        .sustainability::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+        }
+        
+        .sustainability p {
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--text-light);
+            font-size: 18px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+            animation-delay: 0.2s;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            margin: 20px;
+            padding: 40px 30px;
+            min-width: 220px;
+            opacity: 0;
+            animation: slideUp 0.6s ease forwards;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-item:nth-child(1) { animation-delay: 0.3s; }
+        .stat-item:nth-child(2) { animation-delay: 0.5s; }
+        .stat-item:nth-child(3) { animation-delay: 0.7s; }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .stat-item:nth-child(1) .stat-number {
+            background: linear-gradient(45deg, var(--primary), var(--primary-light));
+        }
+        
+        .stat-item:nth-child(2) .stat-number {
+            background: linear-gradient(45deg, var(--secondary), var(--secondary-light));
+        }
+        
+        .stat-item:nth-child(3) .stat-number {
+            background: linear-gradient(45deg, var(--accent), var(--accent-light));
+        }
+        
+        .stat-number::after {
+            content: '+';
+            position: absolute;
+            right: -15px;
+            top: 0;
+            font-size: 30px;
+        }
+        
+        .stat-item:nth-child(2) .stat-number::after {
+            content: '%';
+        }
+        
+        .stat-item:nth-child(3) .stat-number::after {
+            content: '+';
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .newsletter::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            right: -60px;
+            width: 250px;
+            height: 250px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .newsletter h2 {
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            font-size: 16px;
+            outline: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .newsletter-form button {
+            background-color: var(--secondary);
+            color: var(--white);
+            border: none;
+            padding: 0 30px;
+            border-radius: 0 50px 50px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .newsletter-form button:hover {
+            background-color: var(--secondary-light);
+        }
+        
+        /* Testimonial Section */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--quote-bg);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 60px;
+            color: var(--primary-light);
+            opacity: 0.2;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .author-info h4 {
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #0d3a4a 100%);
+            color: var(--white);
+            padding: 70px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: left;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            color: var(--white);
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 15px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-light);
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: var(--white);
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 14px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stat-item {
+                margin: 15px 0;
+            }
+            
+            .quote {
+                font-size: 22px;
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input,
+            .newsletter-form button {
+                border-radius: 50px;
+                width: 100%;
+            }
+            
+            .newsletter-form button {
+                margin-top: 10px;
+                padding: 15px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">EcoVessel</div>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#product">Design</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#sustainability">Impact</a></li>
+                    <li><a href="#" class="cta-button">Pre-Order</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Hydrate Sustainably in Style</h1>
+            <p>Join the movement with our vibrant, eco-friendly water bottles that make sustainability look good</p>
+            <a href="#" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+    
+    <section class="quote-section">
+        <div class="container">
+            <div class="quote">
+                We don't need a handful of people doing zero waste perfectly. We need millions of people doing it imperfectly.
+                <span class="quote-author">- Anne Marie Bonneau, Zero Waste Chef</span>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose EcoVessel?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Planet Positive</h3>
+                    <p>Each bottle removes 10x more plastic from oceans than it uses in production through our partnership with Ocean Cleanup.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Vibrant Colors</h3>
+                    <p>Choose from our nature-inspired color palette that uses non-toxic, plant-based dyes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Premium Feel</h3>
+                    <p>Luxurious matte finish with soft-touch silicone grip that feels amazing in your hand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="product-showcase" id="product">
+        <div class="container">
+            <h2 class="section-title">Bold Design Meets Purpose</h2>
+            <p>Our bottles turn heads while turning the tide on plastic pollution</p>
+            
+            <div class="product-image-container">
+                <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="EcoVessel Water Bottle" class="product-image">
+                <div class="product-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+            
+            <a href="#" class="cta-button">Explore Our Colors</a>
+        </div>
+    </section>
+    
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What People Are Saying</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        I've used many water bottles, but EcoVessel is the first that gets compliments everywhere I go. Plus, I love knowing I'm making a difference!
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>pranathi.g</h4>
+                            <p>Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        The quality is outstanding. I've dropped mine several times and not a scratch! The colors are even more vibrant in person.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>sudha.k</h4>
+                            <p>Environmental Scientist</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        My whole office ordered these after seeing mine. We even started a refill challenge to reduce plastic use. Beautiful and impactful!
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4>vishnu.j</h4>
+                            <p>Marketing Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="sustainability" id="sustainability">
+        <div class="container">
+            <h2 class="section-title">Real Environmental Impact</h2>
+            <p>Every EcoVessel purchase supports our mission to eliminate single-use plastics</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">500</div>
+                    <p>Single-use bottles saved per user annually</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100</div>
+                    <p>Carbon neutral production certified</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1M</div>
+                    <p>Pounds of ocean plastic removed to date</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="quote-section">
+        <div class="container">
+            <div class="quote">
+                The greatest threat to our planet is the belief that someone else will save it.
+                <span class="quote-author">- Robert Swan, Explorer</span>
+            </div>
+        </div>
+    </section>
+    
+    <section class="newsletter">
+        <div class="container">
+            <h2>Join Our Eco-Community</h2>
+            <p>Get 10% off your first order and sustainability tips delivered to your inbox</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>EcoVessel</h3>
+                    <p style="color: rgba(255,255,255,0.7); margin-top: 20px; line-height: 1.7; font-size: 15px;">
+                        We believe sustainability should be beautiful, functional, and accessible to everyone.
+                    </p>
+                    <div class="social-links">
+                        <a href="#">📷</a>
+                        <a href="#">🐦</a>
+                        <a href="#">👍</a>
+                        <a href="#">📌</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">Best Sellers</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                        <li><a href="#">Bundle Deals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>About</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2023 EcoVessel. All rights reserved. | Designed with ♥ for the planet
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
