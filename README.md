@@ -2,8 +2,6 @@
 
 # EcoVessel - Sustainable Water Bottles E-Commerce Website
 
-![EcoVessel Banner](https://via.placeholder.com/1200x400/1a936f/ffffff?text=EcoVessel+Sustainable+Water+Bottles)
-
 ## 🌱 Objective
 To create an engaging, modern e-commerce website for EcoVessel that showcases their colorful, sustainable water bottles while emphasizing their environmental impact. The goal was to combine beautiful design with sustainability messaging to attract eco-conscious consumers.
 
@@ -63,3 +61,36 @@ A fully responsive, visually appealing single-page website that:
      Performance Optimized for fast loading
 
     Accessibility Compliant design
+
+
+
+
+
+
+    <img width="1912" height="879" alt="Image" src="https://github.com/user-attachments/assets/fe877601-c311-4318-862b-ffdada167b15" />
+
+
+<img width="1910" height="876" alt="Image" src="https://github.com/user-attachments/assets/5a70d970-de07-48a2-9663-bf51547792c1" />
+
+
+<img width="1915" height="878" alt="Image" src="https://github.com/user-attachments/assets/641a0f5f-2150-4143-bebe-2aeb53f6af7b" />
+
+
+<img width="1918" height="882" alt="Image" src="https://github.com/user-attachments/assets/7b48398c-b5f4-418b-aea1-ca4f7437a715" />
+
+
+<img width="1899" height="873" alt="Image" src="https://github.com/user-attachments/assets/be258ede-2274-4c24-9139-99585afeba7c" />
+
+
+<img width="1918" height="885" alt="Image" src="https://github.com/user-attachments/assets/ef3ce516-3bf1-436f-ad0e-c1da40f3e3c9" />
+
+
+<img width="1890" height="741" alt="Image" src="https://github.com/user-attachments/assets/44d902e9-a7d3-48c2-89db-1e96f46bdcfd" />
+
+
+<img width="1919" height="881" alt="Image" src="https://github.com/user-attachments/assets/9235ded1-2a9d-4027-b4fd-901cf4928e67" />
+
+
+<img width="1917" height="886" alt="Image" src="https://github.com/user-attachments/assets/8606c0f8-4d67-483d-8aac-cbf707d43cf0" />
+
+
